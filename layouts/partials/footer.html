@@ -1,0 +1,27 @@
+        </div><!-- #main-->
+        {{ partial "sidebar.html" . }}
+      </div><!-- .container -->
+      <footer>
+        <div id="site-footer-wrap">
+          <div id="site-footer">
+            <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+            <span>
+              {{ if .Site.Copyright }}
+              {{ .Site.Copyright }}
+              {{ else }}
+              Copyright (c) {{ .Site.LastChange.Format "2006" }}, <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+              {{ end }}
+           </span>
+           <span id="copyleft">
+              <a rel="license"
+                 href="http://creativecommons.org/licenses/by-sa/4.0/">
+                <img alt="Creative Commons License" style="border-width:0"
+                     src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+              </a>
+            </span>
+          </div>
+        </div>
+      </footer>
+    </div><!-- #wrap -->
+  </body>
+</html>

@@ -1,0 +1,48 @@
+baseurl = "http://kitsu.github.io/"
+languageCode = "en-us"
+title = "Superfluous Comments"
+#theme = "polymer"
+theme = "hugo-theme-geppaku"
+
+MetaDataFormat = "toml"
+paginate = 10 # optional
+disqusShortname = "SuperfComs"
+googleAnalytics = "UA-77704589-1"
+copyright = "© 2015 Ed Blake"
+
+[author]
+    # If you want to display author information set these
+    # This is Optional values
+    name = "Ed Blake"
+    avatar = "images/avatar.jpeg"
+
+    # Please set account ids
+    # This is Optional values
+    #twitter  = "your twitter id"
+    #linkedin = "your linkedin id"
+    github   = "kitsu"
+    gplus = "118323029386640613972"
+    stackoverflow = "770443"
+
+[params]
+    [params.sharebutton]
+        # If you want to display share buttons set these
+        # This is Optional values
+        twitter  = false
+        facebook = false
+        # hatena   = true # hatena is Japanese social media
+        google   = true
+        pocket   = false
+        # Please set id when you want to display facebook
+        #facebookAppId = "your app id"
+
+    [params.adsense]
+        # If you want to display Google adsense set these
+        # This is Optional values
+        # 1. Create file written of the adsense tag into the directory "layouts/partials"
+        # 2. Please set file path name omitted "layouts/partials"
+        sidebar = "adsense/sidebar.html"
+        content = "adsense/content.html"
+
+[permalinks]
+  post = "/:year/:month/:day/:filename/"
