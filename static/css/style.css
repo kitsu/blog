@@ -14,6 +14,14 @@ body {
   font-family: sans-serif;
 }
 
+code {
+    background: silver;
+    color: black;
+    padding: 1pt;
+    border: solid darkgrey 1px;
+    border-radius: 2px;
+}
+
 img {
   max-width: 100%;
   height: auto;

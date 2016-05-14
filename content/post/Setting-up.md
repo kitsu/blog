@@ -47,3 +47,24 @@ up one [repo](https://github.com/kitsu/blog) of the source code, and a
 
 I might still try to automate building/pushing the site, but at this point I've
 spent far too long getting this working.
+
+### Edit
+
+Well, the deploy didn't go as smooth as it could have. It seems I was using a
+really old version of Git (MSYS Git 1.7.1), and something had broken since the last time I pushed
+to Github. Every time I tried to push I got `fatal: authentication failed` or
+worse. The solution was to install the latest
+[Git for Windows](https://git-for-windows.github.io/) which comes with real auth
+support.
+
+As a result though some paths got broken, the Git vim became default and broke
+my vimrc, I then broke Vundle when doing `:BundleUpgrade`. It was a cluster, but
+everything is working now.
+
+On the AdSense front - They did in fact get to my application same day. They
+promptly rejected it because the site wasn't up yet. Which works out really well
+if you were waiting to setup AdSense before going live<span>..</span>.
+
+I did test the site on a few computers, my Note III, and an old Samsung
+tablet. It adapts well enough, but the main div gets crowded on the right margin
+on narrow screens.
