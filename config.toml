@@ -10,6 +10,9 @@ disqusShortname = "SuperfComs"
 googleAnalytics = "UA-77704589-1"
 copyright = "© 2015 Ed Blake"
 
+[blackfriday]
+    smartypants = false
+
 [author]
     # If you want to display author information set these
     # This is Optional values

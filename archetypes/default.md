@@ -1,6 +1,6 @@
 +++
 date = ""
-draft = True
+draft = true
 title = ""
 categories = [""]
 tags = [""]

@@ -2,15 +2,13 @@
 categories = ["Blog"]
 tags = ["meta"]
 date = "2016-05-13T11:20:23-07:00"
-draft = false
 title = "Setting Everything Up"
 
 +++
 
 In which I setup Github hosting, Disqus Comments, Google Analytics and AdSense.
 <!--more-->
-<hr/>
-
+<hr/><br/>
 After spending some time yesterday customizing the
 [Polymer](http://themes.gohugo.io/polymer/) theme I changed my mind and switched
 to a theme called [Geppaku](http://themes.gohugo.io/hugo-theme-geppaku/).

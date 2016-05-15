@@ -8,8 +8,7 @@ title = "Hello Hugo"
 
 Starting a blog, using Hugo, hosted on Github, for reasons.
 <!--more-->
-<hr/>
-
+<hr/><br/>
 I was watching videos from Xamarin Evolve 2016 the other day, when something a
 little different came up. It was a presentation by John Sonmez titled
 [5 Soft Skills Every Developer Should Know](https://www.youtube.com/watch?v=hsEJpLjsUFk).
