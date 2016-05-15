@@ -156,6 +156,7 @@ a:hover {
   width: 310px;
   float: right;
   margin-right: 32px;
+  margin-bottom: 32px;
   min-height:200px; 
   height: 200px;
   height: auto !important; 
