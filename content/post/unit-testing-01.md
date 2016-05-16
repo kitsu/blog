@@ -1,6 +1,6 @@
 +++
 categories = ["Development"]
-tags = ["Code", "Testing"]
+tags = ["Code", "Testing", "python", "lister"]
 date = "2016-05-14T15:00:55-07:00"
 title = "Testing and Thinking About Testing"
 
