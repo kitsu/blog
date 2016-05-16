@@ -178,3 +178,21 @@ elif top in (AND, OR) and stack:
 Once all tokens have been consumed (and the stack squished) without error the
 result is a function taking a row dict and returning match/nomatch.
 It works too, all tests pass, and exercising it in the UI behaves as expected.
+
+### Edit
+
+While I'm thinking about it I wanted to mention the prettiest *explicit*
+Finit-Automata I've ever seen in Python. It was in an answer to a
+[LeetCode question](https://leetcode.com/problems/valid-number/) involving
+parsing a string and determining if it was a valid number. The problem is
+trickier than it sounds, but so is
+[this answer](https://leetcode.com/discuss/70510/a-simple-solution-in-python-based-on-dfa).
+The author builds a state transition table as a list of dicts, where the state
+is an index in the list, and transitions are determined by lookups in the
+current state's map. I made a more verbose version while trying to understand
+it, which is posted further down the thread. So terse, and such a simple looking
+solution to a complex problem.
+
+Additionally, 
+[Here is a talk at this year's Clojure West](https://www.youtube.com/watch?v=GglfimrfYn4)
+covering another interesting class of Automata and some applications.
