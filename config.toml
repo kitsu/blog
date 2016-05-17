@@ -3,7 +3,6 @@ languageCode = "en-us"
 title = "Superfluous Comments"
 #theme = "polymer"
 theme = "hugo-theme-geppaku"
-
 MetaDataFormat = "toml"
 paginate = 10 # optional
 disqusShortname = "SuperfComs"
@@ -28,6 +27,7 @@ copyright = "© 2015 Ed Blake"
     stackoverflow = "770443"
 
 [params]
+    Desc = "Articles on programming topics written by someone who may not know what they are talking about."
     [params.sharebutton]
         # If you want to display share buttons set these
         # This is Optional values

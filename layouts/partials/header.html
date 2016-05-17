@@ -22,6 +22,7 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+    <meta name="Description" content={{ if and (.IsPage) (not .IsHome) }}"{{ .Summary }}"{{ else }}"{{ .Site.Params.Desc }}"{{ end }}>
   </head>
   <body>
     <div id="wrap">
