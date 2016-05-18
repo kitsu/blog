@@ -403,6 +403,7 @@ h4:before {
 }
 
 .article .adsense {
+  width: 100%;
   margin-top: 25px;
   margin-bottom: 30px;
   display:inline-block;
@@ -545,6 +546,7 @@ h4:before {
 
 .adsense .sponsor-label {
   display: block;
+  bottom-margin: 4px;
   font-size: 13px;
   color: #747474;
 }
@@ -571,7 +573,7 @@ h4:before {
 }
 
 .article-footer .tags {
-  margin-bottom: 70px;
+  margin-bottom: 8px;
 }
 
 #disqus_thread {
