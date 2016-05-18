@@ -1,0 +1,27 @@
+(defun c:pown_block (/)
+   (setq title (car (entsel  "Select title text"))
+         name (cdr (assoc 1 (entget title)))
+         dummy (princ "\n")
+         note (car (entsel  "Select note text")))
+   (command "script" "d:\\pown_wrap.scr")
+   (princ))
+(if (not title) (command "invalid"))
+select !note 
+justifytext p 
+tc
+bg  p 
+select !title 
+justifytext p 
+mc
+bg  p 
+(setq insert (cdr (assoc 10 (entget title))))
+select !title 
+tcircle p 
+
+slots
+
+
+
+-block !name annotative yes yes !insert l !title !note 
+(command "-insert" name insert "1" "" "0")
+(setq title nil note nil name nil insert nil)
