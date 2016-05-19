@@ -42,6 +42,7 @@ as its innerHTML and kwargs as attributes:
 {{< highlight python >}}
 
 from functools import partial
+from itertools import chain
 
 self_closing = ["area", "base", "br", "col", "command", "embed", "hr", "img",
                 "input", "keygen", "link", "meta", "param", "source", "track",
