@@ -1,10 +1,9 @@
 baseurl = "http://kitsu.github.io/"
 languageCode = "en-us"
 title = "Superfluous Comments"
-#theme = "polymer"
 theme = "hugo-theme-geppaku"
 MetaDataFormat = "toml"
-paginate = 10 # optional
+paginate = 10
 disqusShortname = "SuperfComs"
 googleAnalytics = "UA-77704589-1"
 copyright = "© 2015 Ed Blake"
