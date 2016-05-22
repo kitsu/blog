@@ -546,7 +546,7 @@ h4:before {
 
 .adsense .sponsor-label {
   display: block;
-  bottom-margin: 4px;
+  margin-bottom: 4px;
   font-size: 13px;
   color: #747474;
 }

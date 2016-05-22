@@ -1,0 +1,69 @@
+.noselect {
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#doclist {
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+div.row {
+    border: 1px solid black;
+    border-bottom: 0px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+div.row.clicked {
+    background-color: #AAF !important;
+}
+
+div.row:hover {
+    background-color: #99E !important;
+}
+
+div.zebra {
+    background-color: #E2E2E8;
+}
+
+div.pending {
+    background-color: #FD1 !important;
+}
+
+div.zebra.pending {
+    background-color: #EC0 !important;
+}
+
+div.complete {
+    background-color: #1E0 !important;
+}
+
+div.zebra.complete {
+    background-color: #0C0 !important;
+}
+
+div.marked {
+    background-color: #B55;
+}
+
+div.zebra.marked {
+    background-color: #C66;
+}
+
+span.bar {
+    display: inline-block;
+    margin-right: 4px;
+    margin-left: 4px;
+    color: #E2E2E8;
+}
+
+span[class*="col"] {
+    display: inline-block;
+}
