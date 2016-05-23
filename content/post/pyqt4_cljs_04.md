@@ -2,11 +2,11 @@
 categories = ["development"]
 tags = ["code", "clojurescript", "pyqt4", "lister"]
 date = "2016-05-23T13:15:39-07:00"
-title = "ClojureScript in PyQt4 QWebView - Fix"
+title = "ClojureScript in PyQt4 QWebView - Fix Dragging"
 
 +++
 
-Summary...
+Higher order event channels for consistent interactions.
 <!--more-->
 <hr/><br/>
 This morning I let my boss try out the online quick-marking demo I posted
