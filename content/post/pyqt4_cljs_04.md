@@ -1,6 +1,6 @@
 +++
 categories = ["development"]
-tags = ["code", "clojurescript", "pyqt4", "lister"]
+tags = ["code", "clojurescript", "async", "lister"]
 date = "2016-05-23T13:15:39-07:00"
 title = "ClojureScript in PyQt4 QWebView - Fix Dragging"
 

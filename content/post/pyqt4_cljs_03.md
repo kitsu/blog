@@ -1,6 +1,6 @@
 +++
 categories = ["development"]
-tags = ["code", "clojurescript", "pyqt4", "lister"]
+tags = ["code", "clojurescript", "async", "lister"]
 date = "2016-05-21T13:12:37-07:00"
 title = "ClojureScript in PyQt4 QWebView - Code"
 
