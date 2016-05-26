@@ -10,7 +10,9 @@ Leiningen is the best, and Qt is... challenging.
 <!--more-->
 <hr/><br/>
 There, it works. Code is up at
-[https://github.com/kitsu/PyQt4_CLJS](https://github.com/kitsu/PyQt4_CLJS/tree/8bc889e641dc90205018e8ba9598ec374521ef16).
+[https://github.com/kitsu/PyQt4_CLJS](https://github.com/kitsu/PyQt4_CLJS)
+Commit:
+[8bc889e6](https://github.com/kitsu/PyQt4_CLJS/tree/8bc889e641dc90205018e8ba9598ec374521ef16).
 
 The lein setup was super easy, aided by the fact I started with
 `lein new figwheel pyqt4_testbed -- --reagent`. First I had to muck with the

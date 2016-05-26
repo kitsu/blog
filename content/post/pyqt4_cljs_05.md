@@ -124,3 +124,8 @@ this code doesn't work outside a go block, and adding a go block breaks the
 tests. I went a ways down the rabbit hole trying to unwrap a channel before I
 remembered reading about cljs.test/async (which was mentioned both in the
 cljs.test docs, and again in the devcards testing docs).
+
+Code is up at
+[https://github.com/kitsu/PyQt4_CLJS](https://github.com/kitsu/PyQt4_CLJS)
+Commit:
+[9103875a](https://github.com/kitsu/PyQt4_CLJS/tree/9103875a20014551631eaafe4433edbe59b01970).

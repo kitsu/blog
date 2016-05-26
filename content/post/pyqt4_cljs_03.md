@@ -184,3 +184,9 @@ state it doesn't need to be visited again. Since the real problem is lag inside
 the update loop another option is to use another async channel to hold queued
 updates. The update queue could then be cleared by another `go-loop` without
 blocking user input.
+
+Code is up at
+[https://github.com/kitsu/PyQt4_CLJS](https://github.com/kitsu/PyQt4_CLJS)
+Commit:
+[f9db9e78](https://github.com/kitsu/PyQt4_CLJS/tree/f9db9e78d166bf87ea6548f569fa82f30da2c75d).
+

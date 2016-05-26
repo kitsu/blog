@@ -137,3 +137,8 @@ The only annoying behavior now is that your drag is terminated the second you
 leave the highlight zone, which means drag-scrolling also terminates
 highlighting. You can still use the scroll wheel to highlight beyond the initial
 view though, so its not that big of a problem.
+
+Code is up at
+[https://github.com/kitsu/PyQt4_CLJS](https://github.com/kitsu/PyQt4_CLJS)
+Commit:
+[b6faca1f](https://github.com/kitsu/PyQt4_CLJS/tree/b6faca1f3febe0c83f120596e24afaa55f5925ec).
