@@ -86,3 +86,26 @@ Remove Devcards from the project deps and add it only to the testcards build:
             :source-map-timestamp true}}
 
 {{< /highlight >}}
+
+### Edit: Nope, even harder than that
+
+The next morning I am working on building out my system when I ran into an odd
+error. I try to fire up Figwheel and start writing some tests, and it doesn't
+work. Figwheel complains that I have an invalid key `:dependencies` in
+my config. Which I do.
+
+The code up above is in `:cljsbuild {:builds {...}}`, and cljsbuild doesn't deal
+with dependencies, Lein does. To make Devcards an optional dependency I need
+that code under the project.clj `:profiles` key:
+
+{{< highlight clojure >}}
+
+:profiles {:test {:dependencies [[devcards "0.2.1-7"]]}}
+
+:cljsbuild {:builds
+            [{:id "test" ...
+
+{{< /highlight >}}
+
+Then I need to run `lein with-profile test figwheel test` to activate that
+profile and have the Devcards jar added to my classpath.
