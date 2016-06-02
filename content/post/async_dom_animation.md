@@ -79,12 +79,12 @@ frames. Another option would be to use an async
 [`mult`](https://clojuredocs.org/clojure.core.async/mult) with taps for each
 animation. So far though this code has worked well enough.
 
-Next I started writing the actual effect functions. Starting with `slide-up` I
+Next I started writing the actual effect functions. Starting with `slide-up!` I
 implemented the animation in a straight-forward way in a go-loop:
 
 {{< highlight clojure >}}
 
-(defn slide-up
+(defn slide-up!
   "Animated hide."
   [elem duration]
   (let [height (dommy/px elem :height)
@@ -100,7 +100,7 @@ implemented the animation in a straight-forward way in a go-loop:
 ;
 {{< /highlight >}}
 
-When I started writing the `slide-down` effect though I started noticing some
+When I started writing the `slide-down!` effect though I started noticing some
 common elements. I went through several passes factoring out the common code,
 and I think I came up with something pretty neat:
 
@@ -121,9 +121,9 @@ and I think I came up with something pretty neat:
               (recur (<! frame-chan)))
           (finalize!))))))
 
-(defn slide-up
+(defn slide-up!
   "Animated hide."
-  ([elem] (slide-up elem anim-time))
+  ([elem] (slide-up! elem anim-time))
   ([elem duration]
    (when-not (dommy/hidden? elem)
      (animate duration
@@ -135,9 +135,9 @@ and I think I came up with something pretty neat:
                             (dommy/hide! elem)
                             (dommy/remove-style! elem :height))}))))
 
-(defn slide-down
+(defn slide-down!
   "Animated reveal."
-  ([elem] (slide-down elem anim-time))
+  ([elem] (slide-down! elem anim-time))
   ([elem duration]
    (when (dommy/hidden? elem)
      (animate duration
@@ -154,12 +154,61 @@ and I think I came up with something pretty neat:
 
 Each effect is really just a sentinel expression, and a map of functions passed
 to the `animate` function. The individual effects are tied via Dommy to the DOM,
-but the animate function is reasonably pure and somewhat testable. I've tried
+but the animate function is reasonably pure and somewhat testable. ~~I've tried
 this out with nearly 2000 rows and it still looks reasonable, which is good
-enough for me.
+enough for me.~~
 
 **Demo:**
 <iframe src="/async_DOM_animation/index.html"
         width="100%" height="225px" style="border: 1px solid black"></iframe>
 
 <br/>
+
+### Edit - Corrections
+
+I was finalizing my changes today, and I found that using the above code caused
+some really odd behavior with long lists (1200+ rows). The total animation time
+was the sum of all simultaneous animation durations, and Ii ran into a limit on
+the number of blocking takes on one `async/chan` (1024 BTW). My first attempt to
+convert to a `mult` caused my app to hang inescapably. The animations bothered
+me more and more though, so I took another shot at it. Here is the revised code:
+
+{{< highlight clojure >}}
+
+(defn anim-source
+  "A continually renewing timer simulating requestAnimationFrame callback."
+  [ch]
+  (put! ch (.now js/Date))
+  (js/setTimeout (partial anim-source ch) fps))
+
+(def frame-mult (let [ch (chan (sliding-buffer 1))]
+                  (js/setTimeout (partial anim-source ch) fps)
+                  (async/mult ch))) ; <- Only store the mult wrapping the channel
+
+(defn animate
+  "Generic animation go-loop."
+  [duration {:keys [initialize! transition! finalize!]}]
+  (let [frame-chan (chan) ; <- Channel created in each animation
+        init (initialize!)
+        start (.now js/Date)]
+    (async/tap frame-mult frame-chan) ; <- Add tap to module-level frame-mult
+    (go-loop [now (<! frame-chan)]
+      (let [elapse (- now start)
+            percent (/ elapse duration)]
+        (if (< elapse duration)
+          (do (transition! init percent)
+              (recur (<! frame-chan)))
+          (finalize!)))
+      ;; This was initially outside the go-loop, resulting in *no* animation
+      (async/untap frame-mult frame-chan))))
+;
+{{< /highlight >}}
+
+Now all animations should update on each frame, and all the animations should
+complete near where their duration elapses. There are still some visual
+glitches, but without access to `requestAnimationFrame` that is to be expected.
+
+As an additional optimization I factored the row hiding/showing code out of all
+the exported functions. I then chose the function to use for hiding depending on
+the number of rows acted upon - `slide-up!`/`slide-down!` if the count is less
+than 100 else `dommy/hide!`/`dommy/show!`.
