@@ -50,3 +50,12 @@ Today was also my self imposed drop-dead date - the day where I either get some
 kind of concession in my current job, or quit outright and re-focus on my job
 search. I expected the outcome of todays meeting to push me one way or the
 other but instead I'm just more disillusioned and indecisive.
+
+### Edit - Resolution
+
+Well I've made a decision. With no active projects, and no indication that I will
+get paid for what I've been working on, there are no reasons left for me to stay
+any longer. Even acknowledging those realities it was a hard choice. In the end
+I flipped a coin - best two out of three - to decide if I should stay and build
+my prototype, twice. I was flipping heads to stay, but the coins came up tails
+every flip...
