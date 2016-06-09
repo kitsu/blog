@@ -19,7 +19,7 @@ stuff in the end.
 
 I decided to start instead by defining my data model. I created a new class file
 in the models directory and opened up the pdf form to start mapping data fields
-to attributes. I had problems even with that simple task though. The form for
+to properties. I had problems even with that simple task though. The form for
 one entry actually contains fields for two different kinds of events. Thinking
 about how to represent that from a database perspective the simplest solution
 would be to just have one big table with all the possible columns. The columns
@@ -28,8 +28,8 @@ actually used would then be determined based on a type discriminator column.
 Because I am using so called *code first* data modeling though it isn't
 completely clear to me how that idea translates into code. After doing some more
 research it seems like Entity Framework's default behavior given models in a
-class hierarchy is to do just that though - create a big table that is the union of all
-instance attributes.
+class hierarchy is to do just that though - create a big table that is the union
+of all instance properties.
 
 Here is what I've come up with so far (BTW I don't know if this actually works):
 
@@ -105,7 +105,7 @@ namespace JobLogger.Models
 {{< /highlight >}}
 
 In particular I expect the union of two models containing `[Required]`
-attributes is a table requiring all attributes, which is the opposite of what I
+properties is a table requiring all properties, which is the opposite of what I
 want. What I want is for the data to go through the appropriate model filter,
 but the actual DB to be more forgiving. I will probably need a custom validation
 layer, but I'll leave this until it becomes a problem.
