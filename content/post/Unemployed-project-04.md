@@ -62,7 +62,7 @@ namespace JobLogger.Controllers
         {
             // The current user is one dependency I couldn't unravel
             // though I think the controller context can be mocked in testing
-            return View(await _logRepository.JobLogs(HttpContext.User));
+            return View(await _logRepository.JobLogsAsync(HttpContext.User));
         }
     }
 }
@@ -72,7 +72,7 @@ namespace JobLogger.Models
 {
     public interface ILogRepository
     {
-        Task<IEnumerable<BaseLog>> JobLogs(IPrincipal user);
+        Task<IEnumerable<BaseLog>> JobLogsAsync(IPrincipal user);
     }
 
     public class LogRepository : ILogRepository
@@ -87,7 +87,7 @@ namespace JobLogger.Models
         }
 
         // Here user log access just looks like requesting a list from somewhere
-        public async Task<IEnumerable<BaseLog>> JobLogs(IPrincipal user)
+        public async Task<IEnumerable<BaseLog>> JobLogsAsync(IPrincipal user)
         {
             var cuser = await _userManager.GetUserAsync((ClaimsPrincipal)user);
             if (cuser != null)
