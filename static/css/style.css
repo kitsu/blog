@@ -420,6 +420,7 @@ h4:before {
 }
 
 .article .content pre {
+    color: white;
   overflow: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
