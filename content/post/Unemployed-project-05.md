@@ -287,3 +287,83 @@ persisted into the database. Unfortunately it seems what I was doing with the
 data store though, I can just swap in something else without any changes to my
 controller or frontend code. I'm thinking of just adding my own user data store
 keyed off the user ID I already found.
+
+### Edit - Scratch that
+
+I just now got the per user lists working!
+
+The last problem I ran into was a `ClassCastException` casting an `IPrincipal`
+instance to an `ApplicationUser` while calling `_userManager.UpdateAsync`. All I
+needed to do was use the actual user I had acquired earlier in the method. While
+figuring that out though I also learned how to get access to the `HttpContext`
+in my repo object, removing the need to pass in the user from the controller.
+
+That fixed JobLog storage (confirmed in the database explorer), but I still
+couldn't see a user's log list. It
+[turns out](https://msdn.microsoft.com/en-us/data/jj574232) EF7 doesn't
+rehydrate "navigation properties" automatically. Since I am getting
+access to the user object via the UserManager I also can't force child data
+inclusion. By including a db context in my repo object though I can query to get
+the user logs
+
+Updated LogRepository class:
+
+{{< highlight csharp >}}
+
+public class LogRepository : ILogRepository
+{
+    private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly ApplicationDbContext _context;
+
+    public LogRepository(IHttpContextAccessor httpContextAccessor,
+                         UserManager<ApplicationUser> userManager,
+                         ApplicationDbContext context)
+    {
+        _httpContextAccessor = httpContextAccessor;
+        _userManager = userManager;
+        _context = context;    
+    }
+
+    private async Task<ApplicationUser> GetCurrentUser()
+    {
+        var user = _httpContextAccessor.HttpContext.User;
+        return await _userManager.GetUserAsync(user);
+    }
+
+    public async Task<IEnumerable<BaseLog>> JobLogsAsync()
+    {
+        var cuser = await GetCurrentUser();
+        if (cuser != null)
+        {
+            var uid = cuser.Id;
+            var logs = from log in _context.JobLogs
+                       where log.ApplicationUser.Id == uid
+                       orderby log.LogDate
+                       select log;
+            return logs.ToList();
+        }
+        return new List<BaseLog>();
+    }
+
+    public async Task AddAsync(BaseLog log)
+    {
+        var cuser = await GetCurrentUser();
+        if (cuser != null)
+        {
+            if (cuser.JobLogs == null)
+            {
+                 cuser.JobLogs = new List<BaseLog>();
+            }
+            var logs = cuser.JobLogs;
+            log.Id = new Guid();
+            logs.Add(log);
+            await _userManager.UpdateAsync(cuser);
+        }
+    }
+}
+
+{{< /highlight >}}
+
+With that I have all the key moving parts working and can finally start working
+on features.
