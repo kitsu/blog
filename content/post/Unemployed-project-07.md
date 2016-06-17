@@ -1,6 +1,6 @@
 +++
 categories = ["development"]
-tags = ["C#", "AspNetCore", "xUnit"]
+tags = ["CSharp", "AspNetCore", "xUnit"]
 date = "2016-06-16T20:33:04-07:00"
 title = "Unemployed project - Progress"
 
@@ -18,7 +18,7 @@ have the front end code which I can tweak endlessly.
 I did discover one interesting detail the other day that is worth mentioning.
 When I started writing tests for the LogListController I ran into a problem - I
 couldn't access the `JsonResult` values to confirm behavior. The problem was
-that I was using adhoc objects to define the json, which are marked internal by
+that I was using ad-hoc objects to define the json, which are marked internal by
 default. In order to access them in my tests (which are in a separate
 sub-project) I had to make the tests a *friend assembly* to my main project.
 
