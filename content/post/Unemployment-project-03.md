@@ -1,6 +1,6 @@
 +++
 categories = ["development"]
-tags = ["c#", "asp.net core", "mvc5+", "code"]
+tags = ["C#", "AspNetCore", "code"]
 date = "2016-06-09T12:22:09-07:00"
 title = "Unemployment Project - Breakthrough"
 
