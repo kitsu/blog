@@ -9,6 +9,12 @@
       </div>
     </div>
   </header>
+      {{ with .Site.Params.adsense.content }}
+      <div class="adsense">
+        <span class="sponsor-label">Sponsored link</span>
+        {{ partial . }}
+      </div>
+      {{ end }}
   <div class="content">
     {{ .Content }}
   </div>
