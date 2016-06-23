@@ -129,3 +129,14 @@ Things to note:
 
 Now I can write my tests in Typescript and they all show up in the Test
 Explorer. Thankfully the tests also run much quicker than the C# tests.
+
+### Edit - Note about suspending
+
+After writing all that I just finished coding some new tests and found *none* of
+my tests populated in the Test Explorer. Closing and re-starting VS fixed the
+problem thankfully. My guess is that the Node server Chutzpah runs in the
+background didn't survive closing the lid on my laptop.
+
+This is inconvenient for me because I almost never restart my laptop. I've had
+my current session going for days, suspending and resuming dozens of times.
+Windows stability sure has come a long way!
