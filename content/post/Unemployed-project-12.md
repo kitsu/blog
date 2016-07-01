@@ -70,3 +70,11 @@ My app is currently just hosted on the free app service tier. I did have to add
 a basic SQL database for $4.99 a month. Thus far I have spent about $2.00 of my
 $200.00 Azure credit just getting things setup. At this burn rate I'll get about
 3 months of hosting. I've added Google AdSense banners in case I get any traffic.
+
+### Edit - TOS
+
+I just re-read the Terms Of Service: the $200.00 credit expires after one
+month. Since it will go away if I don't use it I've cranked all my service plans
+up a few notches. I do have some Windows developer credits too, so I can keep
+the service running past the end of the month, but only if I turn the burn rate
+back down. Hopefully I will remember...
