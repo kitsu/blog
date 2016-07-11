@@ -109,8 +109,8 @@ public struct TileSprite
     // Flipped indicates second frame is shown
     public bool Animated, Flipped;
     // How long to show each side in milliseconds
-    // and ellapsed time since last flip
-    public int ForeDuration, TotalDuration, Ellapsed;
+    // and elapsed time since last flip
+    public int ForeDuration, TotalDuration, Elapsed;
     // Front and back source rects
     public Rectangle Fore, Back;
 
@@ -120,7 +120,7 @@ public struct TileSprite
         Flipped = false;
         ForeDuration = 0;
         TotalDuration = 0;
-        Ellapsed = 0;
+        Elapsed = 0;
         Fore = fore;
         Back = fore;
     }
@@ -131,7 +131,7 @@ public struct TileSprite
         Flipped = false;
         ForeDuration = foreDuration;
         TotalDuration = totalDuration;
-        Ellapsed = 0;
+        Elapsed = 0;
         Fore = fore;
         Back = back;
     }
@@ -175,12 +175,12 @@ class SpriteMap
             sprite = Sprites[key];
             if (sprite.Animated)
             {
-                sprite.Ellapsed += gameTime.ElapsedGameTime.Milliseconds;
-                if (sprite.Ellapsed > sprite.TotalDuration)
+                sprite.Elapsed += gameTime.ElapsedGameTime.Milliseconds;
+                if (sprite.Elapsed > sprite.TotalDuration)
                 {
                     sprite.Flipped = false;
-                    sprite.Ellapsed = 0;
-                } else if (sprite.Ellapsed > sprite.ForeDuration)
+                    sprite.Elapsed = 0;
+                } else if (sprite.Elapsed > sprite.ForeDuration)
                 {
                     sprite.Flipped = true;
                 }
