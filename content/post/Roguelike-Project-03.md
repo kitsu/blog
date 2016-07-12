@@ -3,7 +3,6 @@ categories = ["Development"]
 tags = ["C#", "MonoGame", "Roguelike", "code"]
 date = "2016-07-11T10:37:56-07:00"
 title = "Roguelike Project - Adding Abstractions"
-draft = true
 
 +++
 
@@ -112,7 +111,7 @@ class MapView : IView
 
 {{< /highlight >}}
 
-{{< figure src="/images/manual_tile_map.jpg" alt="Screen capture">}}
+{{< figure src="/images/manual_tile_map.jpg" alt="Screen capture" >}}
 
 For the next step I want to add the next layer of abstraction that will then
 provide the map data to the map view. The simplest thing that would work would
@@ -136,3 +135,29 @@ manages what is created and when. Building things this way lets the Director
 manage the overall game state and its transitions. To do this the Director will
 need a handle for the `ViewManager` and the Simulation container, but these can
 be provided by constructor injection to reduce coupling.
+
+I've done a lot of whiteboard scribbling thinking about how to structure things.
+Here is my current idea about data flow between modules:
+
+{{< figure src="/images/20160712_104728.jpg" >}}
+
+I'm still working on building the pieces, but the idea is:
+
++ The Simulation tracks cells that have some properties and optional contents.
+  Change events are forwarded to various listeners: player control, simulation
+  stats, map viewports, etc.
+  
++ The map controller's viewports get cell information from the simulation and
+  transform it into arrays of simplified data (i.e. what kind of thing goes
+  where). The viewports then forward data to their listeners
+  
++ The MapView then preprocesses the map data to determine which specific tile to
+  show at each location. For example a floor tile with all tile neighbors to the
+  SouthEast and other tiles elsewhere should become a TopLeft corner tile.
+
+By building the view module first I've started at the wrong end of the
+dependency graph. As I'm building out I keep finding I need some earlier
+dependency in place before I can proceed. I'm trying hard to build things in the
+smallest working chunks though. I know from experience that starting at the
+other end, where constraints are few, you can rapidly grow the independent systems
+to intractable complexity.
