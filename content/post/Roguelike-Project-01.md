@@ -1,6 +1,6 @@
 +++
 categories = ["Development"]
-tags = ["C#", "MonoGame", "Roguelike"]
+tags = ["CSharp", "MonoGame", "Roguelike"]
 date = "2016-07-08T10:10:08-07:00"
 title = "Roguelike Project - Tentative Start"
 
