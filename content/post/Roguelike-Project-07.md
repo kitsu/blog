@@ -6,7 +6,7 @@ title = "Roguelike Project - Sim Infrastructure"
 
 +++
 
-Building out map generation, decoupling chunks from generation.
+Building out map generation and decoupling chunks from generation.
 <!--more-->
 <hr/><br/>
 I spent some time building a skeleton for map generation. The basic organization
