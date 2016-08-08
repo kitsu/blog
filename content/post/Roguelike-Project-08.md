@@ -152,11 +152,14 @@ the problem, but I knew my lagging test coverage wasn't helping. I started by
 adding tests for the chunk math from a couple posts back. While writing those
 tests though I discovered a logical inconsistency with my rect
 implementation. It is a little hard to explain, but the problem has to do with
-the difference between indices and areas, and how area is counted. Basically if
-I had a rect that started at x = 0 with a size of 5 it would enumerate x
-coordinates [0, 1, 2, 3, 4, 5], which would be six squares instead of 5. Fixing
-that bug broke some tests and chunk creation. Once I cleaned up the mess though
-scrolling behaved a little better.
+the difference between indices and areas, and how area is counted.
+
+{{< figure src="/images/20160805_132244.jpg" title="Chess vs Go sketch" >}}
+
+Basically if I had a rect that started at x = 0 with a size of 5 it would
+enumerate x coordinates [0, 1, 2, 3, 4, 5], which would be six squares instead
+of 5. Fixing that bug broke some tests and chunk creation. Once I cleaned up the
+mess though scrolling behaved a little better.
 
 The next obvious problem was a delay between when a new chunk moves into view
 and when the chunk loads. It seemed like my area->chunk logic was a little off,
