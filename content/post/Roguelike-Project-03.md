@@ -161,3 +161,5 @@ dependency in place before I can proceed. I'm trying hard to build things in the
 smallest working chunks though. I know from experience that starting at the
 other end, where constraints are few, you can rapidly grow the independent systems
 to intractable complexity.
+
+GitHub commit [ef2aba9ca](https://github.com/kitsu/PCGTest/tree/ef2aba9ca04385f4fe68bcdb3ebc6db2ea88f96a).

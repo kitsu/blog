@@ -228,3 +228,5 @@ functions in region boundaries too.
 I *am* loosing momentum a little with this project. When I can focus on it again I
 will probably jump back to the display side. Now that I have infinite expanses
 of terrain the ability to move the view would be nice.
+
+GitHub commit [6b0f94325](https://github.com/kitsu/PCGTest/tree/6b0f94325589bb2018b933c1b5e754a32e72f9ca).

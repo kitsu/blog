@@ -296,3 +296,5 @@ events one at a time. I haven't decided yet.
 There is one remaining visual bug. Tiles along the bottom and right sides of the
 view are being processed incorrectly by the `TileSolver`. I guess next I will
 look into fixing that and the other problems I've found with the solver.
+
+GitHub commit [bc7e99a79](https://github.com/kitsu/PCGTest/tree/bc7e99a794e46673b0bd34ab95b41f8f525d1d8c).

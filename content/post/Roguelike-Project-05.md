@@ -231,3 +231,5 @@ Next up I'm at the stage of the project where there is enough structure to start
 adding tests. I want to have testing sorted before starting the simulation
 module since that part will benefit from being more test-driven. Luckily, unlike
 my last project, any old test framework should just work out of the box.
+
+GitHub commit [3bb38a769](https://github.com/kitsu/PCGTest/tree/3bb38a769db79eaa6a84438d408bb1b9c3817e38).
